@@ -1,0 +1,13 @@
+h1,h2,h3 {
+	font-family: 'Jim Nightshade', cursive !important;
+}
+
+body {
+	background-image: url("../images/noisy_grid.png");
+	font-family: 'Fjalla One', sans-serif;
+}
+
+.whiteBG {
+	background-color: white;
+	margin: 10px;
+}

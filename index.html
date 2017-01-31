@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cthulhu's Interdimensional Hangman</title>
+	<meta charset="utf-8">
+	<meta lang="English">
+	<link href="https://fonts.googleapis.com/css?family=Fjalla+One|Jim+Nightshade" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+</head>
+<body>
+	<div class="container">
+		<article class="row">
+			<h1 class="text-center text-primary">Cthulhu's Interdimensional Hangman</h1>
+			<section class="col-md-8 col-md-push-4">
+				<div class="container-fluid whiteBG">
+					<h2 class="text-center">Hangman Area</h2>
+					<div id="hangman" class="text-center">
+						<img src="assets/images/stage_0.png">
+						<h2 class="text-center">Guesses remaining: O O O O O</h2>
+					</div>
+				</div>
+			</section>
+
+			<section class="col-md-4 col-md-pull-8">
+				<div class="container-fluid whiteBG">
+					<h2 class="text-center">Game Area</h2>
+					<div>
+						<h3 class="text-center">Cthluhlu dares you: </h3>
+						<h3 class="text-center" id="fill"></h3>
+						<h3 style="float: left;">Guessed: <span id="guessed"></span></h3>
+					</div>
+				</div>
+			</section>
+		</article>
+	</div>
+</body>
+<script src="assets/js/hangman.js"></script>
+</html>
