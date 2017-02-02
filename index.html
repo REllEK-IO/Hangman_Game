@@ -7,6 +7,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Fjalla+One|Jim+Nightshade" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<script type="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.2/howler.core.min.js"></script>
 </head>
 <body>
 	<div class="container">
@@ -14,19 +15,23 @@
 			<h1 class="text-center text-primary">Cthulhu's Interdimensional Hangman</h1>
 			<section class="col-md-8 col-md-push-4">
 				<div class="container-fluid whiteBG">
-					<h2 class="text-center">Hangman Area</h2>
+					<h2 class="text-center">A little game of hangman for your sanity.</h2>
 					<div id="hangman" class="text-center">
 						<img src="assets/images/stage_0.png" id="hanging">
 						<h2 class="text-center" id="chances">Guesses remaining: O O O O O O</h2>
+					</div>
+					<div style="margin; 10px;" class="container text-center">
+						<button style="float: left;" class="btn btn-default btn-sm" onclick="reset()">Reset</button>
+						<span id="wins">Wins: 0</span>
 					</div>
 				</div>
 			</section>
 
 			<section class="col-md-4 col-md-pull-8">
 				<div class="container-fluid whiteBG">
-					<h2 class="text-center">Game Area</h2>
+					<h2 class="text-center">Writting on the wall</h2>
 					<div>
-						<h3 class="text-center">Cthluhlu dares you: </h3>
+						<h3 class="text-center">Cthluhlu dares you to press a key: </h3>
 						<h3 class="text-center" id="fill"></h3>
 						<h3 style="float: left;">Guessed: <span id="guessed"></span></h3>
 					</div>

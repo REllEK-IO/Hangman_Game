@@ -1,4 +1,6 @@
-var wordList = ["hello", "goodbye", "fuck"];
+var wordList = ["abnormal", "accursed", "amorphous", "antediluvian", "antique", "blaspheme", "cat", "charnel", "comprehension", "cyclopean", "dank", "decadent", "daemoniac", "effulgence", "eldritch",
+"faint", "foetid", "fungus", "furtive", "gambrel", "gibbous", "gibber", "hideous", "immemorial", "indescribable", "loathe", "lurk", "madness", "manuscript", "mortal", "nameless", "noisome", "euclidean",
+"proportion", "shunned", "singular", "squamous", "stench", "stygian", "swarthy", "tenebrous", "tentacle", "unmentionable"];
 var userInput;
 var guess = 6;
 var miss = 0;
@@ -6,6 +8,12 @@ var dispWord = '';
 //Contains word used for game
 var word = wordList[Math.floor(Math.random() * wordList.length)];
 var guesses = [];
+var wins = 0;
+
+// var audioSuccess = new Howl({
+//   src: ['../sounds/success.wav']
+// });
+
 
 //return index of each matching char/ lese returns -1 if char is not located
 function replaceAt(index, character, string) {
@@ -27,6 +35,7 @@ function isInString(char, string) {
 
 	if(count > 0)
 	{
+		// audioSuccess.play();
 		return index;
 	}
 	else
@@ -91,20 +100,48 @@ function wasGuessed(check){
 	return true;
 }
 
-setupWord(word);		
-document.onkeyup = function(event) {
-var userGuess = event.key.toLowerCase();
-
-if(!wasGuessed(userGuess)){
-	displayGuess(userGuess);
-	alert("The word is: " + word + "\n The guess was: " + userGuess + "\nThe guess was " + isInString(userGuess, word).toString());
-	setupWord();
-	displayChances();
+function gameContinue(){
+	if(dispWord === word)
+	{
+		wins++;
+		document.getElementById("wins").innerHTML = "Wins: " + wins;
+		return false;
+	}
+	else if(miss === guess)
+	{
+		return false;
+	}
+	else{
+		return true;
+	}
 }
 
+function reset(){
+	userInput = null;
+	guess = 6;
+	miss = 0;
+	dispWord = '';
+	word = wordList[Math.floor(Math.random() * wordList.length)];
+	guesses = [];
+	setupWord();
+	displayChances();
+	document.getElementById("guessed").innerHTML = "";
+}
 
-
-
-};
-//Check input letter string, if in sting display that letter
-//If guess is in string, display fill with letters filled
+setupWord(word);
+//	do{		
+	document.onkeyup = function(event) {
+	var userGuess = event.key.toLowerCase();
+		
+		if(!wasGuessed(userGuess)){
+			// audioSuccess.play();
+			isInString(userGuess, word);
+			displayGuess(userGuess);
+			setupWord();
+			displayChances();
+			if(!gameContinue()){
+				reset();
+			}
+		}
+	}
+//}while(gameContinue());
